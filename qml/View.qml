@@ -6,12 +6,45 @@ Rectangle {
     color: "black"
     focus: true
     
+    Rectangle {
+        id:header
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            anchors.leftMargin: 10
+            anchors.rightMargin: 10        
+            anchors.left: parent.left    
+            anchors.right: parent.right
+            color: "black"
+        
+            height: logo.height
+            
+            Image {
+                id:logo
+                anchors.top: parent.top
+                anchors.left: parent.left
+                source: Qt.resolvedUrl("images/pyconfr_paris.png")
+                fillMode: Image.PreserveAspectFit
+            }
+            
+            // Page Number and title
+            Text{
+                        id:indexText
+                        color:"white"
+                        text:"Développement d'applications Mobile avec Python et Qt : Page " + listView.currentIndex
+                        font.pointSize: 16
+                        wrapMode : Text.WordWrap
+                        horizontalAlignment: Text.AlignHCenter
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        visible: listView.currentIndex > 0 ? true : false;
+            }    
+    }
+            
     Rectangle{
         id: leftButton
         width: 64
-        height: parent.height
         anchors.left: parent.left
-        anchors.top: parent.top
+        anchors.top: header.bottom
         anchors.bottom: parent.bottom
         color: "black"
         Image {
@@ -26,36 +59,12 @@ Rectangle {
         }
     }
 
-    ListView{
-        id:listView
-        orientation:ListView.Horizontal
-        anchors.left: leftButton.right
-        anchors.right: rightButton.left
-        height: parent.height
-        model:PagesModel
-        delegate:myDelegate
-        maximumFlickVelocity:700
-        snapMode: ListView.SnapToItem
-        preferredHighlightBegin: 0; preferredHighlightEnd: 0
-        highlightRangeMode: ListView.StrictlyEnforceRange
-        highlightFollowsCurrentItem: true
-
-        onCurrentIndexChanged: {
-            if(listView.currentIndex == 0) leftArrow.visible = false;
-            else leftArrow.visible = true;
-
-            if(listView.currentIndex == listView.count-1) rightArrow.visible = false;
-            else rightArrow.visible = true;
-        }
-    }
-
-
 
     Rectangle{
         id: rightButton
         width: 64            
         height: parent.height
-        anchors.top: parent.top
+        anchors.top: header.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         color: "black"
@@ -72,7 +81,30 @@ Rectangle {
         
         
     }
-        
+
+    ListView{
+        id:listView
+        orientation:ListView.Horizontal
+        anchors.left: leftButton.right
+        anchors.right: rightButton.left
+        anchors.top: header.bottom
+        anchors.bottom: parent.bottom
+        model:PagesModel
+        delegate:myDelegate
+        maximumFlickVelocity:700
+        snapMode: ListView.SnapToItem
+        preferredHighlightBegin: 0; preferredHighlightEnd: 0
+        highlightRangeMode: ListView.StrictlyEnforceRange
+        highlightFollowsCurrentItem: true
+
+        onCurrentIndexChanged: {
+            if(listView.currentIndex == 0) leftArrow.visible = false;
+            else leftArrow.visible = true;
+
+            if(listView.currentIndex == listView.count-1) rightArrow.visible = false;
+            else rightArrow.visible = true;
+        }
+    }        
     
 
     Component{
@@ -100,19 +132,6 @@ Rectangle {
                 
             }
 
-            // Page Number
-            Text{
-                id:indexText
-                width: parent.width
-                color:"white"
-                text:"page " + (index+1)
-                font.pointSize: 9
-                wrapMode : Text.WordWrap
-                horizontalAlignment: Text.AlignHCenter
-                height:20
-                anchors.bottom: parent.bottom
-                anchors.horizontalCenter: parent.horinzontalCenter
-            }
         }
     }
 

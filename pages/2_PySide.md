@@ -1,10 +1,15 @@
-Presentation de PySide / Qt / Qml
+Présentation de PySide / Qt / Qml
 =================================
 
-* Particularité de Qt : Pas de theme ou support des particularité de la plateforme sur les QWidget comme cela etait le cas sur Maemo (precedente version de MeeGo). Ce qui implique donc l'usage de QML.
-* Qu'est ce que QML, pour faire simple Quick Markup Language. Un language declaratif d'interface. Une sorte de melange de css et de javascript.
+* Particularité de Qt sur Harmattan : Pas de thème ou support des particularité de la plateforme sur les QWidget comme cela était le cas sur Maemo. Ce qui force à utiliser QML.
+
+* Qu'est ce que QML, Quick Markup Language. Un langage déclaratif d'interface. Une sorte de mélange de css et de javascript.
+
 * Pourquoi PySide :
-* Ce sont les seuls binding Qt présent par default
-* Ce sont les seuls binding Qt présent dans les dépots des différents store.
-* Sous licence LGPL
+
+    * Ce sont les seuls binding Qt présent par défaut
+
+    * Ce sont les seuls binding Qt présent dans les dépots des différents store.
+
+    * Sous licence LGPL
 
