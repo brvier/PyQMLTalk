@@ -31,13 +31,14 @@ Rectangle {
                         id:indexText
                         color:"white"
                         text:"Développement d'applications Mobile avec Python et Qt : Page " + listView.currentIndex
-                        font.pointSize: 16
+                        font.pointSize: header.width>0 ? 16 * header.width / 1660 : 16
                         wrapMode : Text.WordWrap
                         horizontalAlignment: Text.AlignHCenter
                         anchors.right: parent.right
                         anchors.verticalCenter: parent.verticalCenter
                         visible: listView.currentIndex > 0 ? true : false;
-            }    
+            }
+            onWidthChanged: {console.log( header.width); }
     }
             
     Rectangle{
@@ -124,13 +125,14 @@ Rectangle {
                 anchors.rightMargin: 20
                 anchors.verticalCenter: parent.verticalCenter
                 color:"white"
-                font.pointSize: 32
+                font.pointSize: listView.height>0 ? 32 * 950 / listView.height : 32
                 elide:Text.ElideRight
                 text: content
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText
                 
             }
+            onHeightChanged: {console.log( listView.height); }
 
         }
     }
@@ -148,4 +150,5 @@ Rectangle {
         if (listView.currentIndex > 0)
             listView.currentIndex = listView.currentIndex-1;
     }
+
 }

@@ -13,13 +13,9 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 
-from PySide.QtGui import QApplication
-from PySide.QtCore import QUrl, Slot, QObject, \
+from PySide.QtCore import Slot, \
                           QAbstractListModel, QModelIndex
-from PySide import QtDeclarative
-from PySide.QtOpenGL import QGLWidget
 
-import sys
 import os.path
 
 from markdown import markdown
@@ -29,7 +25,7 @@ class Page(object):
         self.filename = filename
         with open(os.path.join(os.path.dirname(__file__), 'pages', filename), 'r') as fh:
             self.content = markdown(unicode(fh.read(), 'utf-8'), extensions=['nb2lr',])
-        
+
 class PagesModel(QAbstractListModel):
     COLUMNS = ('filename', 'content', 'index')
 
@@ -39,7 +35,7 @@ class PagesModel(QAbstractListModel):
         self.setRoleNames(dict(enumerate(PagesModel.COLUMNS)))
         self._filter = None
         self.loadData()
-        
+
     def loadData(self,):
         self._pages = [Page(filename=filename.decode('utf-8'))
                        for filename in os.listdir(os.path.join(os.path.dirname(__file__), 'pages'))
@@ -47,8 +43,8 @@ class PagesModel(QAbstractListModel):
                        and (filename.endswith('.md'))]
 
         self._pages.sort(key=lambda page: page.filename, reverse=False)
-        
-        
+
+
     def rowCount(self, parent=QModelIndex()):
         return len(self._pages)
 

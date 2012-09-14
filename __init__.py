@@ -15,7 +15,7 @@
 
 from PySide.QtGui import QApplication, QMainWindow
 from PySide.QtCore import QUrl, Slot, QObject, \
-                          QAbstractListModel, QModelIndex
+                          QAbstractListModel
 from PySide import QtDeclarative
 from PySide.QtOpenGL import QGLWidget
 
@@ -45,7 +45,7 @@ class Window(QMainWindow):
                              'qml', 'View.qml')))
         #self.view.showFullScreen()
         self.setCentralWidget(self.view)
-        
+
 class PyQmlTalk(QApplication):
     ''' Application class '''
     def __init__(self):
@@ -56,8 +56,8 @@ class PyQmlTalk(QApplication):
 
         self.window = Window()
         self.window.view.setResizeMode(QtDeclarative.QDeclarativeView.SizeRootObjectToView)
-        self.window.showFullScreen() 
+        self.window.showFullScreen()
 
-        
+
 if __name__ == '__main__':
     sys.exit(PyQmlTalk().exec_())
