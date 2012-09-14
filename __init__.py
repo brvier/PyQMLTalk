@@ -43,7 +43,6 @@ class Window(QMainWindow):
         self.view.setSource(QUrl.fromLocalFile(
                 os.path.join(os.path.dirname(__file__),
                              'qml', 'View.qml')))
-        #self.view.showFullScreen()
         self.setCentralWidget(self.view)
 
 class PyQmlTalk(QApplication):

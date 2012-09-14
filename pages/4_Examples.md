@@ -1,16 +1,6 @@
-Liste des applications python connues du dépot Apps4MeeGo
-=========================================================
+Exemple d'applications Mobile pour Harmattan/MeeGo
+=================================================
 
-* khtsimpletext
-* khtnotes
-* wleux
-* tizmee
-* khtbma
-* gpodder
-* gonvert
-* ejpi
-* dialcentral
-* wifitransfree
-* wifitrans
-* statusnet-meego
-* minibible
+
+<center>![KhtNotes](pages/khtnotes.png) ![KhtSimpleText](pages/khtsimpletext.png) ![Wleux](pages/wleux.png) </center>
+

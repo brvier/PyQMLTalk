@@ -1,13 +1,15 @@
 Présentation de la plateforme MeeGo/Harmattan
 ===============================================
 
-* Un OS GNU/Linux
+* OS GNU/Linux
 
-* Python 2.6 pré installé
+* Merge de Maemo / Moblin
 
-* Qt 4.7.4 / PySide 1.0.8 pré installé
+* Python 2.6
 
-* 2 Stores d'applications :
+* Qt 4.7.4 / PySide 1.0.8
 
-    * Nokia Store : Ovi store accepte désormais les applications Python tant que les dépendances sont dans leur dépôts
-    * Communautaire : apps.ForMeeGo.com accepte aussi les applications python tant que les dépendances sont dans leur dépôts
+* 2 Stores d'applications acceptant les applications python :
+
+    * Nokia Store
+    * Communautaire : apps.formeego.com
