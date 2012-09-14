@@ -125,7 +125,7 @@ Rectangle {
                 anchors.rightMargin: 20
                 anchors.verticalCenter: parent.verticalCenter
                 color:"white"
-                font.pointSize: listView.height>0 ? 32 * 950 / listView.height : 32
+                font.pointSize: listView.height>0 ? 32 * listView.height / 950 : 32
                 elide:Text.ElideRight
                 text: content
                 wrapMode: Text.WordWrap
