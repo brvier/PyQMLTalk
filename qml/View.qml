@@ -3,7 +3,10 @@ import QtQuick 1.1
 Rectangle {
     id: view
 
-    color: "black"
+    property string textColor:"white"
+    property string bgColor:"black"
+    color: bgColor
+
     focus: true
     
     Rectangle {
@@ -14,7 +17,7 @@ Rectangle {
             anchors.rightMargin: 10        
             anchors.left: parent.left    
             anchors.right: parent.right
-            color: "black"
+            color: view.color
         
             height: logo.height
             
@@ -29,7 +32,7 @@ Rectangle {
             // Page Number and title
             Text{
                         id:indexText
-                        color:"white"
+                        color:view.textColor
                         text:"Développement d'applications Mobile avec Python et Qt : Page " + listView.currentIndex
                         font.pointSize: header.width>0 ? 16 * header.width / 1660 : 16
                         wrapMode : Text.WordWrap
@@ -47,7 +50,7 @@ Rectangle {
         anchors.left: parent.left
         anchors.top: header.bottom
         anchors.bottom: parent.bottom
-        color: "black"
+        color: view.color
         Image {
             id: leftArrow
             source: Qt.resolvedUrl("images/left_arrow.png")
@@ -68,7 +71,7 @@ Rectangle {
         anchors.top: header.bottom
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        color: "black"
+        color: view.color
         Image {
             id: rightArrow
             source: Qt.resolvedUrl("images/right_arrow.png")
@@ -114,7 +117,7 @@ Rectangle {
         Rectangle {
             width:ListView.view.width
             height:ListView.view.height
-            color: "black"
+            color: view.color
             
             // Content
             Text{
@@ -124,7 +127,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.rightMargin: 20
                 anchors.verticalCenter: parent.verticalCenter
-                color:"white"
+                color:view.textColor
                 font.pointSize: listView.height>0 ? 32 * listView.height / 950 : 32
                 elide:Text.ElideRight
                 text: content
@@ -139,7 +142,11 @@ Rectangle {
     Keys.onPressed: { 
         if (event.key == Qt.Key_Left) previousPage();
         if (event.key == Qt.Key_Right) nextPage();
-    }
+        if (event.key == Qt.Key_Up) {
+            view.bgColor= (view.bgColor=="white") ? "black" : "white";
+            view.textColor= (view.textColor=="black") ? "white" : "black"; 
+        }
+}
      
     function nextPage() {
         if (listView.currentIndex+1 < listView.count)
