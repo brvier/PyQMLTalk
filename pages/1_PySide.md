@@ -9,3 +9,5 @@ Présentation de PySide / Qt / Qml
 
 * QML: Quick Markup Language. Un langage déclaratif d'interface. Une sorte de mélange de css et de javascript.
 
+<center>![PySide](pages/pyside.png) ![Qt](pages/qt.svg)</center>
+

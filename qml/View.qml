@@ -130,7 +130,6 @@ Rectangle {
                 text: content
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText
-                
             }
             onHeightChanged: {console.log( listView.height); }
 
